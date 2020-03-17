@@ -260,5 +260,72 @@ box모델, inline모델을 페이지 상에서 배치하는 스타일 즉, 페�
 
 ### 다단 스타일
 
++ **column-width**
+
+    ```html
+    단의 너비 고정하고 다단 구성 * 너비를 기준으로 다단 개수를 나눔
+    선택자{
+    -접두사-column-width: 숫자(단위) or auto; column-width: 숫자(단위) or auto;
+    }
+    ```
++ **column-count**
+
+    ```html
+    단의 개수를 지정하여 다단을 나눔
+    선택자{
+    -접두사-column-count: 숫자(단위) or auto; column-count: 숫자(단위) or auto;
+    }
+    ```
++ **column-gap**
+    ```html
+    다단 사이의 여백 설정
+    선택자{
+    -접두사-column-gap: 숫자(단위) or normal; column-gap: 숫자(단위) or normal;
+    }
+    ```
+
++ **column-rule**
+
++ **column-span**
+
+### 표 스타일
+
++ **caption-side**
+다단 사이의 여백 설정
+선택자{
+-접두사-column-gap: 숫자(단위) or normal; column-gap: 숫자(단위) or normal;
+}
++ **width/height**
+표 높이와 너비를 지정하는 속성으로 테이블에 지정하면 테이블의 전체 크기, <td>에 지정하면 컬럼의 너비/높이 표시
+선택자{height: 숫자(단위); width: 숫자(단위);}
+
++ **border**
+표의 테두리 스타일을 지정하는 속성 * 테두리 스타일 border속성 참고
+선택자{border: width style color;}
+
++ **border-collapse**
+테두리 스타일을 변경하는 속성으로 표 테두리를 두 개로 표시할 지 한 개로 표시할 지 결정
+선택자{border-collapse: 속성 값;}
+
++ **border-spacing**
+테두리를 두 개로 표현했을 때(separate) 가까운 쪽의 테두리 사이 거리 지정 속성
+선택자{border-spacing: 가로 세로;}
+
++ **empty-celss**
+테두리 스타일 두 개로 표시할 때(separate) 빈 셀에 대해 표시할 지 하지 않을 지 결정하는 속성
+선택자{empty-cells: 속성 값;}
+
++ **table-layout**
+```
+<td>의 너비를 width로 지정해도 셀의 내용이 길어지면 자동으로 길어지고 table의 width 지정 값에 따라 안의 셀들이 조절되는데 <td>의 크기를 width로 고정하는 속성
+선택자{table-layout: fixed or auto;} * 속성 값 auto는 default 값이며, fixed로 <td>를 고정한 상태에서 <td> 안의 내용이 넘어가면 <td>를 벗어나 작성이 됨 이를 <td> 안에 작성되게 하려면 word-break: break-all;을 추가하고 너비가 고정되면 작성 내용 길이에 따라 변경될 수 없으므로 자동으로 늘어날 수 있게 height 값을 auto로 정해 줌 height: auto;
+```
++ **text-align**
+<td>안의 텍스트를 수평으로 정렬하는 속성
+선택자{text-align: left | center | right;}
+
++ **vertical-align**
+<td>안의 텍스트를 수직으로 정렬하는 속성
+선택자{vertical-align: top | bottom | middle;}
 
 
