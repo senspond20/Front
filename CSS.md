@@ -61,4 +61,122 @@ p{text-align: center;}
  + 소스 순서에 따른 순위
 
 나중에 작성된 스타일 적용
+```
+
+## 텍스트 스타일
+
++ 웹 폰트 제공사이트 : http://fonts.google.com
+
+```html
+<!-- 적용 -->
+<head>
+<link href="폰트URL" rel="stylesheet">
+
+</head>
+```
+
+### § 글꼴 속성 
+
++ **font-family** : 선택자{font-family: 글꼴1[, 글꼴2, 글꼴3];}
+
+    폰트의 글꼴을 설정해주는 속성으로 글꼴1이 없으면 글꼴2, 글꼴3으로 선택되어 설정됨, 다 없으면 브라우저 기본 글꼴로 적용
+
++ **font-size** : 선택자{font-size: 숫자단위;}
+
+    글자의 크기를 조절하는 속성으로 em, px, pt 단위가 있음
+
++ **font-weight**
+    글자 굵기를 조절하는 속성
+    normal/bold/bolder/lighter/100~900
+
++ **font-variant** : 선택자{font-variant: normal or small-caps;}
+    영어를 작은 대문자로 표시해주는 속성
+
++ **font-style** : 선택자{font-style: normal or italic or oblique;} 
+    글자를 이텔릭체로 표시하는 속성
+
++ **font**
+
++ **color** : 선택자{color: 색상;} * 색지정방법 :  rgb(000, 000, 000) / red / #ff0000
+    글자 색을 정하는 속성
+
+### § 텍스트 스타일 
+
++ **text-decoration**
+    글자 밑줄이나 취소선,윈 선을 긋는 속성
+
+    |    |      |
+    |---|----|
+    |none|밑줄 삭제
+    |underline|밑줄 표시
+    |overline|윗줄 표시
+    |line-through|취소선 표시
+
++ **text-transform**
+    영문자를 표시할 때 대소문자를 원하는 대로 바꿀 수 있는 속성
+
+    |    |      |
+    |---|----|
+    |none|변환 없이 표시
+    |capitalize|시작하는 첫 번쨰 글자를 대문자로 변환
+    |uppercase|모든 글자를 대문자로 변환
+    |lowercase|모든 글자를 소문자로 변환
+
++ **text-shadow**
+    텍스트에 그림자 효과를 주는 속성
+    선택자{text-shadow: none or 가로 세로 번짐 색상;}
+    * 인자(가로, 세로, 번짐, 색상)를 여러 개 사용할 때 “,“로 구분하여 그림자로 활용 가능
+ 
+ + **white-space**
+    공백을 처리하는 속성
+    선택자{white-space: normal or nowrapor pre or pre-line or pre-wrap}
++ **letter-spacing**
+
++ **word-spacing**
+
+### § 문단 스타일
+
++ **direction** 글자 쓰기 방향 지정
+선택자{direction: ltr or rtl;}
+
++ **text-align** 문자 위치조정(정렬)
+선택자{text-align: left or right or center or justify;}
+
++ **text-indent** 문장 들여쓰기
+선택자{text-indent: 숫자(단위);}
+
++ **line-height** 문장끼리 줄간격 조정
+선택자{line-height: normal or 숫자(단위);}
+
++ **text-overflow** 영역을 벗어나는 텍스트 표시 
+선택자{text-overflow: clip or ellipsis;}
+
+### § 목록 스타일
+
+|   |   |    |
+|---|---|----|
+|ul|disc|흑색원형|
+|  |circle|흰색원형|
+|   |square|흑색사각형|
+|   |none|기호표시안함|
+|ol|decimal|1로 시작하는 십진수|
+|  |decimal-leading-zero| |
+|  |lower-roman/upper-roman| |
+|  |lower-alpha/lower-latin|  |
+|  |upper-alpha/upper-latin|  |
+
++ **list-style-image**
+기호 대신 이미지 삽입
+선택자{list-style-image: url(이미지 경로);}
+
++ **list-style-position**
+목록 기호 들여쓰기
+선택자{list-style-position: inside or outside;}
+
++ **list-style**
+목록 스타일 한번에 지정하는 속성
+선택자{list-style: type값 position값 image값;}
+
+
+
 
