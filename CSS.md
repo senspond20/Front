@@ -178,5 +178,87 @@ p{text-align: center;}
 선택자{list-style: type값 position값 image값;}
 
 
+### 색상/배경
+
+|구분|내용|표현 방법
+|---|---|----
+|영문 색이름|영문으로 색 이름 작성|red,black,blue 등
+|16진수 표현| rgb값을 기준으로 16진수로 작성|#16진수 3자리 ex. #ff0000 (빨간색)
+|rgb/rgba| rgb값을 0~255로 입력, rgba는 투명도 표현 가능 |rgb(0~255, 0~255, 0~255) ex. rgb(255, 0, 0) rgb(0~255, 0~255, 0~255, 0~1) 투명도 : 1 = 불투명 / 0=투명
+|hsl/hsla| 색상,채도,밝기로 색 입력 | hsl(색상 값, 채도 값(%), 명도 값(%)) hsla(색상 값, 채도 값(%), 명도 값(%), 투명도)
+
+### 배경 스타일
+
++ **background-color**
+    배경색을 지정하는 속성
+    선택자{background-color: 색상표현;}
+
++ **background-clip**
+    배경 범위 조절
+    선택자{background-clip: 속성 값;}
+
+| | |
+|-|-|
+|border-box|박스 모델의 가장 외곽인 테두리까지 적용
+|padding-box|테두리 제외한 패딩 범위까지 적용
+|content-box|내용부문만 적용
+
++ **backgound-image**
+배경에 이미지 설정
+선택자{background-image: url(경로);}
+
++ **background-repeat**
+배경 이미지 반복 출력 설정
+선택자{background-repeat: 속성 값;}
+
++ **background-size**
+배경 이미지 크기를 조절하는 속성
+선택자{background-size: 속성 값;}
+
++ **background-position**
+배경 이미지 위치를 조정하는 속성
+선택자{background-position: 속성 값;}
+
++ **background-origin**
+배경 이미지 배치할 때 기준을 지정하는 속성
+선택자{background-origin: 속성 값;}
+
++ **background-attachment**
+웹 페이지가 위아래로 움직여도 배경은 움직이지 않게 고정하는 속성
+선택자{background-attachment: 속성 값;}
+
++ **background**
+배경 이미지 한 번에 설정하는 속성
+선택자{background: image값 repeat값 attachment값 position값 clip값 origin값 size값;}
+
+
+### 포지셔닝
+box모델, inline모델을 페이지 상에서 배치하는 스타일 즉, 페이지 안 요소들을 원하는 위치에 배치하는 속성 의미 position 속성, float 속성이 있음
+
++ **position**
+
+    페이지의 요소를 자유롭게 배치해주는 속성 top, left, right, bottom으로 위치 지정
+    선택자{position: 속성 값; [top: 숫자(단위);] [left: 숫자(단위);] [right: 숫자(단위);] [bottom: 숫자(단위);]}
+
++ **visibility**
+
+    페이지에 특정 속성을 보이거나 보이지 않게 하는 속성
+    선택자{visiblility: 속성 값;}
+
++ **z-index**
+
+    페이지의 요소들을 순서대로 위에 쌓는 속성 속성 값이 크면 가장 위에 있는 요소, 작으면 밑에 있는 요소 * 요소가 항상 맨 위에 위치해야 하면 값을 999 또는 1000 등 큰 값으로 설정
+    선택자{z-index: 속성 값;}
+
++ **float**
+    페이지 내 요소의 위치를 왼쪽이나 오른쪽으로 지정하는 속성
+    선택자{float: 속성 값;}
+
++ **clear**
+    페이지에 float설정이 되어 있으면 그 속성이 그대로 그 다음 요소에 영향을 미치는데 이를 초기화시키는 속성
+    선택자{clear: 속성 값;}
+
+### 다단 스타일
+
 
 
