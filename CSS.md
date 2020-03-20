@@ -320,6 +320,7 @@ box모델, inline모델을 페이지 상에서 배치하는 스타일 즉, 페�
 <td>의 너비를 width로 지정해도 셀의 내용이 길어지면 자동으로 길어지고 table의 width 지정 값에 따라 안의 셀들이 조절되는데 <td>의 크기를 width로 고정하는 속성
 선택자{table-layout: fixed or auto;} * 속성 값 auto는 default 값이며, fixed로 <td>를 고정한 상태에서 <td> 안의 내용이 넘어가면 <td>를 벗어나 작성이 됨 이를 <td> 안에 작성되게 하려면 word-break: break-all;을 추가하고 너비가 고정되면 작성 내용 길이에 따라 변경될 수 없으므로 자동으로 늘어날 수 있게 height 값을 auto로 정해 줌 height: auto;
 ```
+
 + **text-align**
 <td>안의 텍스트를 수평으로 정렬하는 속성
 선택자{text-align: left | center | right;}
