@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.area{border: 1px solid red; min-height: 160px;}
+</style>
+
+</head>
+<body>
+	<h1>Practice</h1>
+	
+		<label>취미 : </label> 
+			
+			<input type="checkbox" name="categroy "value="all"><label>전체선택</label>
+			<input type="checkbox" name="category" value="c1"><label>농구</label> 
+			<input type="checkbox" name="categroy" value="c2"><label>축구</label>
+		<br>
+		<br>
+	
+	<button onclick = "test5(this);">카테고리 선택</button>
+	<div id ="area1" class = "area"></div>
+	
+	<script>
+		function test5(btn){
+			var area1 = document.getElementById('area1');
+			
+			console.log(btn);
+			
+			area1.innerHTML = btn.innerTest;
+		//	alert('오늘 배울 내용은 ' + btn.innerText + '입니다.');
+		}
+	</script>
+	
+
+</body>
+</html>
