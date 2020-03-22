@@ -4,22 +4,63 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	.area{border: 1px solid red; min-height: 160px;}
-	.textbox{}
+.area {
+	border: 1px solid black;
+	width: 60px;
+	left : 140px;
+}
+
+.textbox {
+	width: 60px;
+}
 </style>
 
 </head>
 <body>
 	<h1>Practice2</h1>
+
+	<input type="text" class="textbox" id="num1">
+	<select name="사칙연산" id="calc">
+		<optgroup label="사칙연산"></optgroup>
+		<option value=1>+</option>
+		<option value=2>-</option>
+		<option value=3>*</option>
+		<option value=4>/</option>
+		<option value=5>%</option>
+	</select>
+	<input type="text" class="textbox" id="num2">
+	<button onclick ="calc();">=</button>
 	
-	<input type = "text" class ="textbox" id = "m1" >
-	<input type = "text" class ="textbox" id = "m2" >
-	<input type = "text" class ="textbox" id = "result" >
+	<!-- <textarea id="output"></textarea>-->
 	
+ 	<input type="text" class="textbox" id="output">
+	<!--  <div id="output" class = "area"></div> -->
 	<script>
-	
+		function calc(){
+		   var num1 = Number(document.getElementById("num1").value);
+		   var num2 = Number(document.getElementById("num2").value);
+		   var option = Number(document.getElementById("calc").value);
+		  
+		   var result = 0;
+		   
+		   if(num2 == 0 && (option == 4 || option == 5) ){
+			 	result = '연산불가'; 
+		   }else{	
+			   switch(option){
+				   case 1: result = num1 + num2; break;
+				   case 2: result = num1 - num2; break;
+				   case 3: result = num1 * num2; break;
+				   case 4: result = num1 / num2; break;
+				   case 5: result = num1 % num2; break;
+			   }
+		   }
+		 	output(result);
+		}
+		function output(result) {
+			document.getElementById("output").value = result;
+		}
 	</script>
-	
+
 
 </body>
 </html>

@@ -4,35 +4,116 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	.area{border: 1px solid red; min-height: 160px;}
+	.area{border: 1px solid red; min-height: 60px;}
 </style>
 
 </head>
 <body>
 	<h1>Practice</h1>
-	
-		<label>취미 : </label> 
-			
-			<input type="checkbox" name="categroy "value="all"><label>전체선택</label>
-			<input type="checkbox" name="category" value="c1"><label>농구</label> 
-			<input type="checkbox" name="categroy" value="c2"><label>축구</label>
+	<from>
+		<fieldset>
+			<legend>취미</legend>
+			<input type="checkbox" id="selectAll" value="all"><label>전체선택</label>
+			<input type="checkbox" name="category" value="종합"><label>종합</label> 
+			<input type="checkbox" name="category" value="소설"><label>소설</label>
+			<input type="checkbox" name="category" value="시/에세이"><label>시/에세이</label> 
+			<input type="checkbox" name="category" value="경제/경영"><label>경제/경영</label>
+			<input type="checkbox" name="category" value="자기계발"><label>자기계발</label> 
+			<input type="checkbox" name="category" value="아동"><label>아동</label>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="checkbox" name="category" value="여행"><label>여행</label> 
+			<input type="checkbox" name="category" value="과학"><label>과학</label>
+			<input type="checkbox" name="category" value="역사/문화"><label>역사/문화</label>
+			<input type="checkbox" name="category" value="외국어"><label>외국어</label>
+			<input type="checkbox" name="category" value="컴퓨터"><label>컴퓨터</label>
+			<input type="checkbox" name="category" value="만화"><label>만화</label>
 		<br>
-		<br>
-	
-	<button onclick = "test5(this);">카테고리 선택</button>
+		</fieldset>
+	</from>
+	<br>
+	<!--<button onclick = "isAll();"> 선택</button>-->
+	<button onclick = "accessName();">카테고리 선택</button>
 	<div id ="area1" class = "area"></div>
-	
 	<script>
-		function test5(btn){
-			var area1 = document.getElementById('area1');
-			
-			console.log(btn);
-			
-			area1.innerHTML = btn.innerTest;
-		//	alert('오늘 배울 내용은 ' + btn.innerText + '입니다.');
+		function isCheckSelectAll() {
+			var categoryall = document.getElementById('selectAll');
+			if(categoryall.checked){
+				return true;
+			}else{
+				return false;
+			}
+		 }
+
+		function isAll(){
+			var category = document.getElementsByName('category');
+
+			if(isCheckSelectAll()){
+				for(var i = 0; i < category.length; i++){
+						category[i].checked = true;
+					}
+			}
 		}
+		function accessName() {
+			var category = document.getElementsByName('category');
+			console.log(category);
+			isAll();
+			var checkItem = "";
+
+			for(var i = 0; i < category.length; i++) {
+				if(category[i].checked == true){
+					checkItem += category[i].value + " ";
+				}
+			}
+			document.getElementById('area1').innerHTML = checkItem;
+		}
+
+		/*
+function checkedAll() {
+	var chkAll = document.getElementById('chkAll');
+	var chk = document.getElementsByName('chk');
+	if (chkAll.checked) {
+	   for ( var i in chk) {
+		  chk[i].checked = true;
+	   }
+	} else {
+	   for ( var i in chk) {
+		  chk[i].checked = false;
+	   }
+	}
+ }
+ 
+ function categorySel() {
+	var category = document.getElementById('category');
+	category.innerHTML = "";
+	var chk = document.getElementsByName('chk');
+	for (var i = 0; i < chk.length; i++) {
+	   if (chk[i].checked) {
+		  category.innerHTML += chk[i].value + " ";
+	   }
+	}
+ }
+ 
+ function isChk() {
+	var chk = document.getElementsByName('chk');
+	var chkAll = document.getElementById('chkAll');
+	var count = 0;
+	for (var i = 0; i < chk.length; i++) {
+	   if (chk[i].checked) {
+		  count++;
+	   }
+	}
+	if (count == chk.length) {
+	   chkAll.checked = true;
+	} else {
+	   chkAll.checked = false;
+ 
+	}
+ }
+ */
 	</script>
 	
 
+
 </body>
 </html>
+
