@@ -146,58 +146,26 @@
 					<td><input type ="checkbox" name="hobby" value ="game" id ="exercise">운동</td>
 				</tr>
 			</table>
-		
 		</fieldset>
 	</form>
 	<br>
 	
-	<div id ="area2" class ="area"></div>
-	<button onclick ="accessName();">name으로 접근</button>
-	<script>
-		function accessName(){
+	<div id="area2" class="area"></div>
+	<button onclick="accessName()">name으로 접근</button>
+	<script type="text/javascript">
+		function accessName() {
 			var hobby = document.getElementsByName('hobby');
 			console.log(hobby);
-		}
-		
-		for(var i = 0; i < hobby.length; i++){
-			if(hobby[i].checked == true){
-				checkItem += hobby[i].value + "선택함<br>";
+			
+			var checkItem = "";
+			for(var i = 0; i < hobby.length; i++) {
+				if(hobby[i].checked == true){
+					checkItem += hobby[i].value + "선택함<br>";
+				}
 			}
+			document.getElementById('area2').innerHTML = checkItem;
 		}
-	
-		document.getElelemtById('area2').innerHTML = checkItem;
-		
-	</script>
-	
-	<h3>text박스의 value 값 읽어오기</h3>
-	<form>
-		이름 : <input type ="text" name ="userName" id ="userName">
-		<input type ="button" onclick ="readValue();" value ="input값 확인">
-	</form>
-	<br>
-	<div id="area3" class="area"></div>
-	<script>
-		//1. 이름을 입력하느 칸에 자신의 이름을 입력하고 'input값 확인 버튼'을 눌렀을 시
-		//   아래 div영역에 입력한 이름이 출력되도록 함(여러 번 버튼을 눌러도 한번만 나오게)
-		
-		//2. 이름을 입력하지 않았으면 '이름을 입력하세요'라는 알림창이 뜨고
-		//	 이름을 입력하는 칸으로 커서 이동
-		
-		function readValue(){
-         var name = document.getElementById('userName');
-       //  console.log(name);
-         
-         if(name.value != " "){
-            document.getElementById('area3').innerHTML = name.value;
-            console.log(name);
-            name.value = '';
-            
-         } else {
-            alert("이름을 입력하세요");
-            document.getElementById('userName').focus();
-            
-         }
-      }
+
 	</script>
 	
 	<h3>데이터 입력</h3>
@@ -223,7 +191,6 @@
 		}
 	</script>
 	<hr>
-</body>
 
 	<h4>window.prompt()</h4>
 	<p>
@@ -242,6 +209,6 @@
 		}
 	</script>
 	
-	
-	
+</body>
+
 </html>
