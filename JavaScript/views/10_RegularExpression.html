@@ -23,19 +23,71 @@
 
             //2. 스크립트 작성
             //var regExp = 'script'; //에러
-           // var regExp = /script/;
-            var regExp = /scriptttt/;
+            var regExp = /script/;
+           // var regExp = /scriptttt/;
 
             var str = 'javascript jquery ajax';
 
             // 1. 정규표현식 객체 메소드 이용
             // test() : 해당 글자가 있으면 true, 없으면 false;
             area1.innerHTML += "test() 함수 사용 : " + regExp.test(str) + "<br>";
-            // exec() 
+            // exec() : 해당 글자가 있으면 그 값 반환, 없으면 null 
             area1.innerHTML += 'exec() 함수 사용 : ' + regExp.exec(str) + "<br>";
-            
-            
+            console.log(regExp.exec(str));
+
+            // 2. String 메소드 이용
+            // match()
+            area1.innerHTML += "match()함수 이용 : " + str.match(regExp) + "<br>";
+            // replace()
+            area1.innerHTML += "replace()함수 이용 : " + str.replace(regExp, '스크립트') + "<br>";
+            // search()
+            area1.innerHTML += "search() 함수 이용 : " + str.search(regExp) + "<br>";
+            // split()
+            area1.innerHTML += "split() 함수 이용 : " + str.split(regExp) + "<br>";
+            console.log(str.split(regExp));
         }
     </script>
+
+    <h2>$&,$`.$'</h2>
+    <button onclick="test2();">실행확인</button>
+    <div id ="area2" class="area"></div>
+    <script>
+        function test2(){
+            var area = document.getElementById('area2');
+            var regExp = /as/;
+            var str = "javacript jquery ajax sass";
+
+            area.innerHTML += 'str : ' + str + "<br>";
+
+            // $& : 제일 처음 일치하는 문자열 의미
+            area.innerHTML += '$& : ' + str.replace(regExp, '($&)') + "<br>";
+
+            // $` : 매칭된 문자열의 앞 문자열 의미
+            area.innerHTML += '$` : ' + str.replace(regExp, '($`)') +"<br>";
+
+            // $` : 매칭된 문자열의 뒷 문자열 의미
+            area.innerHTML += "$' : " + str.replace(regExp, "($')") +"<br>";
+
+            var output = str.replace(regExp, function(val){
+                return '+++' + val + '+++';
+            });
+
+            area.innerHTML += "str.replace() : " + output;
+        }
+    </script>
+
+    <hr>
+    <h2> ()소괄호와 </h2>
+    <p>여러 문자열 중에 해당하는 것을 검색하기 위해 (str1 | str2 | str3 ) 식으로 사용 가능</p>
+    <button onclick="test3();">실행확인</button>
+    <div id ="area3" class ="area"></div>
+    <script>
+        function test3(){
+            var src = ['월요일', '화요일','수요일','목요일','금요일','토요일','일요일'];
+            var area3 = document.getElementById('area3');
+        }
+
+    </script>
+
 </body>
 </html>
