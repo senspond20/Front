@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>.area{border: 1px solid black; min-height: 150px;}</style>
+</head>
+<body>
+    <h1>정규표현식</h1>
+    <!-- 회원가입 할때 많이 쓰인다. 비밀번호 기입시 영문,특수문자 .xx 문자 사이로 만들어라 등등-->
+    <h2>정규표현식 객체 생성</h2>
+    <button onclick="test1();">확인하기</button>
+    <div id ="area1" class ="area"></div>
+    <script>
+        function test1(){
+            var area1 = document.getElementById('area1');
+
+            // 정규식 변수 선언 방법
+            // 1. new
+          //  var regExp = new RegExp('script');
+          //  var regExp = new RegExp(/script/);
+
+            //2. 스크립트 작성
+            //var regExp = 'script'; //에러
+           // var regExp = /script/;
+            var regExp = /scriptttt/;
+
+            var str = 'javascript jquery ajax';
+
+            // 1. 정규표현식 객체 메소드 이용
+            // test() : 해당 글자가 있으면 true, 없으면 false;
+            area1.innerHTML += "test() 함수 사용 : " + regExp.test(str) + "<br>";
+            // exec() 
+            area1.innerHTML += 'exec() 함수 사용 : ' + regExp.exec(str) + "<br>";
+            
+            
+        }
+    </script>
+</body>
+</html>

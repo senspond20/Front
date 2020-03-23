@@ -41,7 +41,7 @@
         <label>이름 : </label><input type ="text" name ="t-name" id = "name"><br><br>
         <br><br>
         
-        <input id="signUp" type="submit" onclick="join();" value="회원가입" />
+        <input id="signUp" type="submit" onclick="return checkEffectiveness();" value="회원가입" />
 </fieldset>
 </form>
 <script type ="text/javascript">
@@ -56,25 +56,33 @@
          if(userid.value == "" ||userid.value == undefined ){
             alert("아이디를 입력하세요");
             userid.focus();
-           return;
+           return false;
          }
          if(userpwd.value == "" ||userid.value == undefined ){
             alert("비밀번호를 입력하세요");
             userpwd.focus();
-            return;
+            return false;
          }
 
          if(pwdchk.value == "" ||pwdchk.value == undefined ){
             alert("비밀번호 확인을 입력하세요");
             pwdchk.focus();
-           return;
+            return false;
+         }
+         
+         if(userpwd.value != pwdchk.value){
+            alert("비밀번호가 일치하지 않습니다");
+            pwdchk.select();
+            return false;
          }
 
          if(name.value == "" ||name.value == undefined ){
             alert("이름을 입력하세요");
             name.focus();
-            return;
+            return false;
          }
+
+         alert(name.value + "님, 회원가입이 성공적으로 완료되었습니다^^");
         
     }
     function join(){

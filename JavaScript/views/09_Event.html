@@ -107,6 +107,10 @@
         아이디 : <input type ="text" name ="userId" id ="userId"><br>
         비밀번호 : <input type = "password" name ="password" id ="password"><br>
         비밀번호 확인 : <input type ="password" name="passwordConfirm" id ="passwordConfirm"><br>
+       
+        <input type ="submit" value="제출" onclick="return test7();">
+       
+        
     </form>
     <script>
         function test7(){
@@ -114,8 +118,72 @@
             //그리고 비밀번호와 비밀번호가 같지 않으면 '비밀번호가 틀립니다.'가 알림창에 뜨면서 비밀번호 확인에 커서가 올라가고
             //제출은 되지 않아야 한다.
             //비밀번호와 비밀번호 확인이 같으면 '비밀번호가 일치합니다.'가 알림창에 뜬다.
+            var name = document.getElementById('name').value;
+            var userId = document.getElementById('userId').value;
+            var password = document.getElementById('password').value;
+            var passwordConfirm = document.getElementById('passwordConfirm').value;
+
+           // alert(name + ", " + userId + ", " + password + ", " + passwordConfirm);
+            console.log(name);
+            console.log(userId);
+            console.log(password);
+            console.log(passwordConfirm);
+
+            if(password == passwordConfirm){
+                alert("비밀번호가 일치합니다.");
+                return true;
+            }else{
+                alert("비밀번호가 틀립니다.");
+                document.getElementById('passwordConfirm').select();
+                //   passwordConfirm.focus();
+                return false;
+          
+            }
         }
     </script>
+
+    <h2>기본 이벤트 제거2</h2>
+    <!-- 이 방법을 더 자주쓴다. submit 자체에 걸어둔다.-->
+    <form onsubmit="return test8();">
+        이름 : <input type = "text" name ="name2" id ="name2"><br>
+        아이디 : <input type ="text" name ="userId2" id ="userId2"><br>
+        비밀번호 : <input type = "password" name ="password2" id ="password2"><br>
+        비밀번호 확인 : <input type ="password" name="passwordConfirm2" id ="passwordConfirm2"><br>
+       
+        <input type ="submit" value="제출">
+    </form>
+
+    <script>
+        function test8(){
+            //이름, 아이디, 비밀번호, 비밀번호 확인에 써있는 값을 모두 가져와 console에 띄운다.
+            //그리고 비밀번호와 비밀번호가 같지 않으면 '비밀번호가 틀립니다.'가 알림창에 뜨면서 비밀번호 확인에 커서가 올라가고
+            //제출은 되지 않아야 한다.
+            //비밀번호와 비밀번호 확인이 같으면 '비밀번호가 일치합니다.'가 알림창에 뜬다.
+            var name = document.getElementById('name2').value;
+            var userId = document.getElementById('userId2').value;
+            var password = document.getElementById('password2').value;
+            var passwordConfirm = document.getElementById('passwordConfirm2').value;
+
+           // alert(name + ", " + userId + ", " + password + ", " + passwordConfirm);
+            console.log(name);
+            console.log(userId);
+            console.log(password);
+            console.log(passwordConfirm);
+
+            if(password == passwordConfirm){
+                alert("비밀번호가 일치합니다.");
+                return true;
+            }else{
+                alert("비밀번호가 틀립니다.");
+                document.getElementById('passwordConfirm2').select();
+                //   passwordConfirm.focus();
+                return false;
+          
+            }
+        }
+    </script>
+
+    <br><br><br><br><br>
 
 </body>
 </html>
