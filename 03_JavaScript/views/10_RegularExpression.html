@@ -214,11 +214,13 @@
          
          var str1 = "JavaScript JQuery Ajax";
          var str2 = "123JavaScript";
-         
+         area8.innerHTML += "<h2>" + str1 + "</h2>";
          var regExp1 =/[aj]/gi;
          area8.innerHTML += regExp1 + " : " + str1.replace(regExp1, '($&)') + "<br>";      
          var regExp2 =/[^aj]/gi;
-         area8.innerHTML += regExp2 + " : " + str1.replace(regExp2, '($&)') + "<br>";      
+         area8.innerHTML += regExp2 + " : " + str1.replace(regExp2, '($&)') + "<br>";  
+         
+         area8.innerHTML += "<h2>" + str2 + "</h2>";
          var regExp3 =/[a-z]/g;
          area8.innerHTML += regExp3 + " : " + str2.replace(regExp3, '($&)') + "<br>";      
          var regExp4 =/[A-Z]/g;
@@ -267,7 +269,15 @@
             area9.innerHTML += regExp6 + " : " + src.replace(regExp6, '($&)') + "<br>";
 
             // 문제 : 메타문자를 사용하지 않고 [] 으로 표현하기
-            //
+            area9.innerHTML += "<br>" + "----------------------------" + "<br>";
+            var regExp11 = /[0-9]/g;
+            area9.innerHTML += regExp11 + " : " + src.replace(regExp11, '($&)') + "<br>";
+
+            var regExp12 = /([A-Z][a-z][0-9])/g;
+            area9.innerHTML += regExp12 + " : " + src.replace(regExp12, '($&)') + "<br>";
+
+            var regExp13 = "";
+            area9.innerHTML += "";
        }
    </script>
 
@@ -321,13 +331,19 @@
         주민번호의 유효성 체크<br>
         생년생월생일-성별숫자6
    </p>
-   <input type= "text" id ="ssn">&nbsp; <button onclick ="Validate();">실행확인</button>
+   <input type= "text" id ="ssn">&nbsp; <button onclick ="validate();">실행확인</button>
    <script>
        function validate(){
            //정규표현식을 만들어 test()메소드를 사용해 표현이 일치하면 알림창으로 
            // '정상입력!' 출력,입치하지 않으면 '잘못입력 !' 출력
-            
+            var ssn = document.getElementById('ssn');
+            alert(ssn.value);
+
+            src.replace(/[0-9]/g, '($&)')
+
+
        }
+
    </script>
 </body>
 </html>
