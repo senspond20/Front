@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>practice2_simpleCalculation</title>
+</head>
+<body>
+
+	<h1>Practice2</h1>
+	<input type="number" id="num1" name="num2" style="width:100px;">
+	<select name="select">
+		<option value="x">x</option>
+		<option value="/">/</option>
+		<option value="+">+</option>
+		<option value="-">-</option>
+		<option value="%">%</option>
+	</select>
+	<input type="number" id="num2" name="num2" style="width:100px;">
+	<button id="=" onclick="practice2();">=</button>
+	<input type="text" id="num" style="width:100px;">
+	<script>
+		function practice2(){
+			var sel = document.getElementsByName('select');
+			var num = document.getElementById("num");
+			var num1 = parseInt(document.getElementsByName('num2')[0].value);
+			var num2 = parseInt(document.getElementsByName('num2')[1].value);
+			
+			var test = document.getElementsByName('num2');
+			
+			num.style.backgroundColor ="";
+			num.style.color="";
+			num.value="";
+			
+			console.log(num2);
+			console.log(test);
+			
+			if(sel[0].value=="x"){ 
+				num.value = num1*num2;
+			}else if(sel[0].value=="/"){
+				if(num2!=0){
+				num.value = num1/num2;
+				}else{
+				num.style.backgroundColor ="red";
+				num.style.color="white";
+				num.value="연산불가";
+				}
+			}else if(sel[0].value=="+"){
+				num.value = num1+num2;
+			}else if(sel[0].value=="-"){
+				num.value = num1-num2;
+			}else if(sel[0].value=="%"){
+				if(num2!=0){
+					num.value = num1%num2;
+					}else{
+					num.style.backgroundColor ="red";
+					num.style.color="white";
+					num.value="연산불가";
+					}
+			}
+		}
+	</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

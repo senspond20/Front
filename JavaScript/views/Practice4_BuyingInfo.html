@@ -1,11 +1,45 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
 <body>
-    
+	<h1>Practice4</h1>
+	<fieldset>
+		<legend>구매정보</legend>
+		<ul>
+			<li>구매자: <input type="text" placeholder="구매자의 이름을 입력하세요" name="n" value="" id="구매자 명"></li>
+			<li>상품명: <input type="text" placeholder="구매 상품명을 입력하세요" name="n" value="" id="상품 명"></li>
+			<li>가격: <input type="number" placeholder="구매가격을 입력하세요" name="n" value="" id="가격"></li>
+			<li>구매 수량: <input type="number" placeholder="최소 10" min=10 max=100 step=10 name="n" value="" id="구매 수량"></li>
+			<li>납품 등급: <input type="range" min=1 max=9 step=2 name="n" value="" id="납품등급"></li>
+			<li>기타 사항: <textarea cols="30" rows="5" name="n" value="" id="기타사항"></textarea></li>
+		</ul>
+	</fieldset>
+	<button onclick="test1();">입력값 출력하기</button>
+	<div id="area" style="width:500px; height:200px; border:1px solid black"></div>
+	
+	<script>
+		function test1(){
+			var area = document.getElementById('area');
+			var name = document.getElementsByName('n');
+			
+			var n1 = document.getElementById('구매자 명');
+			var n2 = document.getElementById('상품 명');
+			var n3 = document.getElementById('가격');
+			var n4 = document.getElementById('구매 수량');
+			var n5 = document.getElementById('납품등급');
+			var n6 = document.getElementById('기타사항');
+			
+			area.innerHTML = n1.id+" : "+n1.value+" 님 <br>"+
+							 n2.id+" : "+n2.value+"<br>"+
+							 n3.id+" : "+n3.value+"만원 <br>"+
+							 n4.id+" : "+n4.value+"개 <br>"+
+							 n5.id+" : "+n5.value+"등급 <br>"+
+							 n6.id+" : "+n6.value+"<br>";
+		}
+	</script>
+	
 </body>
 </html>

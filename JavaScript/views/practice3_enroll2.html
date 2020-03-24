@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>practice3_enroll</title>
+</head>
+<body>
+	<h1>Practice3</h1>
+	<fieldset>
+		<legend>회원가입</legend>
+		아이디: <input type="text" id="아이디" onblur="onblur1();" value="" name="check">
+		<h5 id="h3" style="display:inline" ></h5><br><br>
+		비밀번호: <input type="password" id="비밀번호" value="" name="check"><br><br>
+		비밀번호 확인: <input type="password" onblur="onblur2();" id="비밀번호확인" value="" name="check">
+		<h5 id="h5" style="display:inline" ></h5><br><br>
+		이름: <input type="text" id="이름" value="" name="check"><br><br>
+		
+		<button onclick="oncl();" id="but">회원가입</button>
+	
+	</fieldset>
+	
+	<script>
+		function onblur1(){
+			var id1= document.getElementById('아이디');
+			var h3=document.getElementById('h3');
+			
+			if(id1.value!="user01"){
+				h3.innerHTML = "사용가능한 아이디입니다.";
+				h3.style.color="yellowgreen";
+			}else{
+				h3.innerHTML = "이미 존재하는 아이디입니다.";
+				h3.style.color="red";
+				id1.value="";
+				id1.focus();
+			}
+			
+		}
+		function onblur2(){
+			var pass1 = document.getElementById('비밀번호');
+			var pass2 = document.getElementById('비밀번호확인');	
+			
+			if(pass1.value != pass2.value){
+				h5.innerHTML = "비밀번호가 일치하지 않습니다.";
+				h5.style.color="red";
+				pass2.value="";
+				pass2.focus();
+			}else{
+				h5.innerHTML = "비밀번호가 일치합니다.";
+				h5.style.color="yellowgreen";
+			}
+		}
+		function oncl(){
+			var id1= document.getElementById('아이디');
+			var pass1 = document.getElementById('비밀번호');
+			var pass2 = document.getElementById('비밀번호확인');	
+			var name =  document.getElementById('이름');
+			var check =  document.getElementsByName('check');
+			
+			if(id1.value!="" && pass1.value!="" && pass2.value!="" && name.value!=""){
+				alert(name.value+"님, 회원가입이 성공적으로 완료되었습니다^^");
+				id1.value="";
+				pass1.value="";
+				pass2.value="";
+				name.value="";
+			}else{
+				for(var i=0;i<check.length;i++){
+					if(check[i].value ==""){
+					alert(check[i].id+"를 입력해주세요")
+					document.getElementById(check[i].id).focus();
+					break;
+					}
+				}
+			}
+			console.log(check[0].id)
+			console.log(check);
+		}
+		
+	</script>
+</body>
+</html>

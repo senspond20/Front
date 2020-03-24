@@ -19,16 +19,16 @@
 <body>
 	<h1>Practice2</h1>
 
-	<input type="text" class="textbox" id="num1">
-	<select name="사칙연산" id="calc">
-		<optgroup label="사칙연산"></optgroup>
+	<input type="number" class="textbox" id="num1">
+	<select name="select" id="calc">
+		<optgroup label="select"></optgroup>
 		<option value=1>+</option>
 		<option value=2>-</option>
 		<option value=3>*</option>
 		<option value=4>/</option>
 		<option value=5>%</option>
 	</select>
-	<input type="text" class="textbox" id="num2">
+	<input type="number" class="textbox" id="num2">
 	<button onclick ="calc();">=</button>
 	
 	<!-- <textarea id="output"></textarea>-->
@@ -40,10 +40,12 @@
 		   var num1 = Number(document.getElementById("num1").value);
 		   var num2 = Number(document.getElementById("num2").value);
 		   var option = Number(document.getElementById("calc").value);
-		  
+		  var num = document.getElementById('output');
 		   var result = 0;
 		   
 		   if(num2 == 0 && (option == 4 || option == 5) ){
+				num.style.backgroundColor ="red";
+				num.style.color="white";
 			 	result = '연산불가'; 
 		   }else{	
 			   switch(option){
@@ -54,11 +56,9 @@
 				   case 5: result = num1 % num2; break;
 			   }
 		   }
-		 	output(result);
+		   num.value = result;
 		}
-		function output(result) {
-			document.getElementById("output").value = result;
-		}
+
 	</script>
 
 
