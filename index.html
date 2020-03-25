@@ -5,9 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    #title{
+        font-size: 30px;
+    }
+    #menu{
+		width: 300px; height: 230px;
+		background : beige;
+		border-radius: 10px;  
+		border : 1px solid green;
+		cursor : pointer;
+	}
+	#menu ul li p {
+        color: blue;
+        font-size: 20px;
+        margin-bottom: 25px;
+    }
+    
+    #menu ul li a {
+
+	}
+</style>
 <body>
 
-    <h1><a href = "./JavaScript/index.html">JavaScript</a></h1>
-    
+    <p id = "title">Front-End</p>
+    <hr>
+    <nav id = "menu">
+        <ul>
+            <li><a href = "./01_HTML/index.html"><p>01_HTML</p></a></li>
+            <li><a href = "./02_CSS/index.html"><p>02_CSS</p></a></li>
+            <li> <a href = "./03_JavaScript/index.html"><p>03_JavaScript</p></a></li>
+            <li> <a href = "./04_jQuery/index.html"><p>04_jQuery</p></a></li>
+        </ul>
+    </nav>
 </body>
 </html>
