@@ -337,11 +337,11 @@
            //정규표현식을 만들어 test()메소드를 사용해 표현이 일치하면 알림창으로 
            // '정상입력!' 출력,입치하지 않으면 '잘못입력 !' 출력
             var ssn = document.getElementById('ssn');
+            var regExp = /^\d{2}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[01])-[1-4]\d{6}$/;
+
             alert(ssn.value);
 
-            src.replace(/[0-9]/g, '($&)')
-
-
+         
        }
 
    </script>
