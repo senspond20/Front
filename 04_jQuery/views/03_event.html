@@ -277,10 +277,10 @@
             console.log('keydown : ' + e.key);
          });
          $('#text8').keypress(function(e){
-            console.log('keydown : ' + e.key);
+            console.log('keypress : ' + e.key);
          });
-         $('#text8').keyup   (function(e){
-            console.log('keydown : ' + e.key);
+         $('#text8').keyup(function(e){
+            console.log('keyup : ' + e.key);
          });
       });
    </script>
@@ -289,15 +289,37 @@
 	<span id ="counter">0</span>/150
 	<textarea cols = 70 rows=5 id ="textTest"></textarea>
 	<script>
-		$(function()
-			// textarea 에 입력된 글자수가 카운트 되면서 150글자가 넘어가면 빨간색으로 숫자가 바뀌게 하기
-			$('#textTest').keyup(function (e){
-		          var content = $(this).val();
+   
+      // textarea 에 입력된 글자수가 카운트 되면서 150글자가 넘어가면 빨간색으로 숫자가 바뀌게 하기
+
+		$(function(){
+       //  
+               $('#textTest').keydown(function(e){
+                  var count = $(this).val();
+                  $('#counter').html(count.length+1);
+
+               });
+               $('#textTest').keydown(function(e){
+                  var count = document.getElementById('counter');
+                  var countNumber = Number(count.textContent);
+             //     Number($('#counter').textContent) ??
+
+                  if(countNumber > 150){
+                     count.style.color = "red";
+                  }else{
+                     count.style.color = "black";
+                  }
+               });
+         });
+
+        //  $('counter').textContent( Number($('counter').textContent) + 1);
+         /*	$('#textTest').keydown(function (e){
+		          var  = $(this).val();
 		          $(this).height(((content.split('\n').length + 1) * 1.5) + 'em');
 		          $('#counter').html(content.length + '/300');
 		      });
 		
-		      $('#textTest').keyup();
+		      $('#textTest').keyup();*/
 	</script>
 
 
