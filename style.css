@@ -1,0 +1,37 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+#title{
+    font-size: 30px;
+    text-align: center;
+}
+#menu{
+    background: rgb(222, 135, 161); 
+}
+#menu nav {
+    width: 800px; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+#menu ul li {
+    background: beige;
+    text-align: center; 
+    vertical-align: middle; 
+    width: 150px; 
+    height: 50px; 
+    display:table-cell;
+}
+
+#menu ul li a{
+    color: blue;
+    font-size: 20px;
+    text-decoration:none;
+    cursor: pointer;
+}
+#menu ul li:hover {
+    background:skyblue;
+}
+#menu ul li:hover a{
+    color: red;
+}
