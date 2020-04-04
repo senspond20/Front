@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    section{
+        background : whitesmoke;
+        width : 900px;
+        height: 400px; 
+        margin-left:auto; 
+        margin-right:auto; 
+        margin-top: 50px;
+       
+    }
+    .outer{
+        background : white;
+        width : 800px;
+        height: 400px; 
+        margin-left:auto; 
+        margin-right:auto;
+    }
+    #head{
+        background: skyblue;
+        height: 30px;
+    }
+    .tableArea {
+        width: 700px;
+        height:350px; 
+        border-collapse: collapse;
+        margin-left:auto;
+        margin-right:auto;
+        border: 1px solid black;
+        text-align: center;
+    }
+    .tableArea th{
+        border-collapse: collapse;
+        border: 1px solid skyblue;
+    }
+    .tableArea td{
+        border-bottom: 1px solid skyblue;
+        border-collapse: collapse;
+    }
+
+</style>
+</head>
+<body>
+    <section>
+        <br>
+        <h2 align="center">게시판</h2>
+    <div class="outer">
+        <div class="tableArea">
+           <table id="listArea">
+              <tr id="head">
+                 <th width="50px">글번호</th>
+                 <th width="400px">글제목</th>
+                 <th width="100px">작성자</th>
+                 <th width="100px">작성일</th>
+                 <th width="50px">조회수</th>
+                
+              </tr>
+
+              <tr>
+                 <td>1</td>
+                 <td>sensig</td>
+                 <td>admin</td>
+                 <td>2019-04-31</td>
+                 <td>5</td>
+              </tr>
+
+           </table>
+        </div>
+        <br>
+        <br>
+    </section>
+</body>
+</html>

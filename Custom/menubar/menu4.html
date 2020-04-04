@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+    /*body 초기화*/
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;  
+    }
+    
+    h1 {
+      margin: 2em 0 1.5em 0;
+    }
+    
+    nav {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      background: whitesmoke;
+    }
+    
+    ul, li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    #main-menu{
+     background:  rgb(7, 148, 167);
+    }
+    #main-menu > li {
+      float: left;
+      position: relative;
+    }
+    
+    #main-menu > li > a {
+      font-size: 0.85rem;
+      color: whitesmoke;
+      text-align: center;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      display: block;
+      padding: 14px 36px;
+      border-right: 1px solid rgba(0,0,0,0.15);
+      text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    }
+    
+    #main-menu > li:nth-child(1) > a {
+      border-left: 1px solid rgba(0,0,0,0.15);
+    }
+    
+    #sub-menu {
+      position: absolute;
+      background: whitesmoke;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.15s ease-in;
+    }
+    
+    #sub-menu > li {
+      padding: 16px 28px;
+      border-bottom: 1px solid rgba(0,0,0,0.15);
+    }
+    
+    #sub-menu > li >  a {
+      color: royalblue;
+      text-decoration: none;
+    }
+    
+    #main-menu > li:hover{
+     background: rgba(135, 207, 235, 0.548);
+    }
+    #main-menu > li:hover #sub-menu {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    #sub-menu > li >  a:hover {
+     text-decoration: underline;
+    }
+    
+    section {
+      column-width: 15em;
+      background: #dadadf;
+      padding: 2em 12em;
+    }
+
+
+
+</style>
+</head>
+
+<body>
+    <h1 style="color: royalblue;">ULTARY</h1>
+<nav role="navigation">
+  <ul id="main-menu">
+    <li><a href="#">내울타리</a></li>
+    <li><a href="#">커뮤니티</a>
+      <ul id="sub-menu">
+        <li><a href="#" aria-label="subemnu">submenu</a></li>
+        <li><a href="#" aria-label="subemnu">submenu</a></li>
+        <li><a href="#" aria-label="subemnu">submenu</a></li>
+        <li><a href="#" aria-label="subemnu">submenu</a></li>
+      </ul>
+    </li>
+    <li><a href="#">위탁매칭</a>
+      <ul id="sub-menu">
+        <li><a href="#" aria-label="subemnu">submenu</a></li>
+        <li><a href="#" aria-label="subemnu">submenu</a></li>
+        <li><a href="#" aria-label="subemnu">submenu</a></li>
+        <li><a href="#" aria-label="subemnu">submenu</a></li>
+      </ul>
+    </li>
+    <li><a href="#">마이페이지</a>
+      <ul id="sub-menu">
+        <li><a href="#" aria-label="subemnu">submenu</a></li>
+        <li><a href="#" aria-label="subemnu">submenu</a></li>
+        <li><a href="#" aria-label="subemnu">submenu</a></li>
+        <li><a href="#" aria-label="subemnu">submenu</a></li>
+        <li><a href="#" aria-label="subemnu">submenu</a></li>
+      </ul>
+    </li>
+    <li><a href="#">고객센터</a></li>
+  </ul>
+</nav>
+<section>
+  <h2>울타리</h2>
+  <p>울타리입니다.</p>
+</section>
+
+
+    
+</body>
+</html>
