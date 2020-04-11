@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .contents{
+		border : 1px solid lightgray;
+		width : 300px;
+		height : 200px;
+		display : none;
+	}
+</style>
+</head>
+<body>
+<form id ="enrollfrom" action ="memberenroll" method ="POST" submit = check(); >
+<ul>
+    <li><label>아이디</label><input type ="text" id ="userId"></li>
+    <li><label>패스워드</label><input type ="text" id ="userPwd"></li>
+    <li><label>패스워드 확인</label><input type ="text" id ="userPwdCh"></li>
+    <li><label>관심분야(java,html/css, javascript/jquery, 데이터베이스 중 다수 값이면, 로 구분하여 작성)
+    </label><br><input type ="text" style="width: 400px;" placeholder="java,html/css, javascript/jquery, 데이터베이스 중 ,로 구분"></li>
+    <li><label>이메일</label><input type ="email"></li>
+    <li><label>지식정도(상,중,하로 작성)</label>
+    	<select name = "sel1">
+			<option value ="상" selected>상</option>
+			<option value ="중">중</option>
+			<option value ="하">하</option>
+		</select>
+    </li>
+    <li><label>레벨</label></li>
+    <select name = "sel2">
+        <option value ="고수" selected>고수</option>
+        <option value ="중수">중수</option>
+        <option value ="하수">하수</option>
+    </select>
+    <li><label>전화번호</label>
+        <select>
+            <option value ="010" selected>010</option>
+            <option value ="011">011</option>
+            <option value ="016">016</option>
+            <option value ="019">019</option>
+        </select> - 
+        <input type ="tel" maxlength="4" style="width: 50px;"> - 
+        <input type = "tel" maxlength="4" style="width: 50px;">
+    </li>
+    <li><input type ="submit" vlaue="회원가입">
+        <button>취소</button></li>
+</ul>
+
+<button onclick="gogo();">댓글등록</button>
+<p class = "contents"></p>
+
+</form>    
+</body>
+<script>
+    // 댓글등록 펼치기
+   function gogo(){
+    $(this).next().slideToggle();
+   }
+
+    //유효성검사
+    function check(){
+
+        var userId = document.getElementById("userId");
+        var userPwd = document.getElementById("userPwd");
+        var userPwdCh = document.getElementById("userPwdCh");
+
+        if(/*/ 값 하나라도 비어있으면 */){ /
+            return false;
+        }else if(/* userId 조건*/){
+            alert("아이디는 영문자와 숫자로 8글자 이상 12글자 이하, 영어로 시작하고 영어와 숫자로 구성되며, 허용되는 기호문자는 *! & 중 하나로 조합되어야 합니다.")
+            return false;
+        }else if(/* userPwd 조건*/){
+            alert("패스워드는 길이 8자 이상 12자 이하, 숫자 하나이상 기호문자 한개로 입력하세요")
+            return false;
+        }else if(userPwd != userPwdCh){
+            alert("비밀번호가 일치하지 않습니다.")
+            return false;
+        }else{
+             return true;
+        }
+    }
+    
+</script>
+</html>

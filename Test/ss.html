@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    #content {
+        background: whitesmoke;
+        margin-top: 50px;
+        width: 900px;
+    }
+    .outer{
+       
+    }
+    #mainWrapper {
+        line-height: 2em;
+        font-family: "맑은 고딕";
+        text-align: center;
+    }
+
+    #title{
+        font-size: 25px;
+    }
+    #inputText{
+       width: 650px;
+       height: 300px;
+       text-align: left;
+    }
+    #submit{
+       background-color: rgba(0, 0, 0, 0.658);
+       color: white;
+       font-size: 22px;
+       border-radius: 15px;
+       float: right;
+       transform: translateX(-90px);
+    }
+    #content-box{
+       background-color: rgb(214, 241, 252);
+       width: 800px;
+       height: 450px;
+       border-radius: 20px;
+       margin-left: 50px;
+       margin-bottom: 50px;
+    }
+</style>
+
+</head>
+<body>
+    
+    <section id ="content">
+    <div id ="mainWrapper">
+        <form>
+        <p id ="title"><b>1:1 문의 게시판</b></p>
+        <hr>
+        <p style="color: gray;">궁금하신 사항을 입력해 주세요</p>
+     
+        <div id = "content-box">
+           
+           <br>1:1 문의<br>
+    
+           <br>
+           <textarea id ="inputText"></textarea><br>
+           
+           <button id ="submit">문의하기</button>
+           <br><br><br><br>
+        </div>
+        <br>
+        </form>
+     </div>
+    </section>
+</body>
+</html>

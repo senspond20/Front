@@ -1,0 +1,156 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+section{
+	background : whitesmoke;
+	margin-top : 50px;
+	width : 900px;
+}
+#mainWrapper{
+	text-align: center;
+}
+#liSearchOption {clear:both;}
+#liSearchOption > div {
+    margin:0 auto; 
+    margin-top: 30px; 
+    width:auto; 
+    height:100px;  
+   
+}
+#selSearchOption{
+    width: 50px;
+}
+#txtKeyWord{
+    width: 140px;
+}
+
+.left {
+    text-align : left;
+}
+#ftable{
+    background-color: rgb(214, 241, 252);
+    margin-top: 5px;
+    border: 10px solid rgb(214, 241, 252);
+    margin-left:auto;
+    margin-right:auto;
+}
+#ftable td{
+    border: 5px solid rgb(214, 241, 252);
+}
+.ftr{
+    background-color: white;
+}
+#f1e{
+    width: 100px;
+    background-color: rgb(63, 63, 187);
+    color: white;
+    font-size: 25px;
+    border-radius: 10px;
+}
+#f2e{
+    width: 700px;
+    font-size: 20px;
+    float: left;
+}
+.fNum{
+    font-size: 40px;
+    background-color: black;
+    color:white;
+    border-radius: 10px;
+    border: 5px 5px 5px 5px;
+}
+.question:hover .answer{
+    display: block;
+    cursor: pointer;
+}
+.answer{
+       width: 700px;
+    height: auto;
+    background: beige;
+}
+</style>
+
+</style>
+</head>
+<body>
+<%@ include file="../common/import.jsp" %>
+   <!-- 내용 들어갈 영역 -->
+      <section id="content">
+
+           <div id="mainWrapper">
+
+                      <p style="color: gray;">궁금하신 사항을 선택해 주세요</p>
+                     
+                          <!-- 검색 폼 영역 -->
+                          <div id='liSearchOption'>
+                            <form>
+                            <select id='selSearchOption' >
+                                <option value='A'>제목+내용</option>
+                                <option value='T'>제목</option>
+                                <option value='C'>내용</option>
+                            </select>
+                            <input id='txtKeyWord' />
+                            <input type='button' value='검색'/>
+                            </form>
+                        </div>
+                    </div>
+
+                    <table id = "ftable">
+                        <tr>
+                            <td id = "f1e"><b>Q&A</b></td>
+                            <td id = "f2e"><b>자주묻는 질문</b></td>
+                        </tr>
+                        <tr class="ftr">
+                            <td class="fNum"><b>1</b></td>
+                            <td class = "question">강아지 똥은 얼마나 자주싸나요?<br>
+                               
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>answer</td>
+                            <td>
+                            <div class = "answer">매우 수시로 쌉니다.ㅁㅁㄴㅇㄴㅁㅇㅁㄴ
+                                ㅁㄴㅇㅁㄴㅇㅁㄴㅇㄴㅁ
+                                ㅁㄴㅇㅁㄴㅇㄴㅁㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇ
+                            </div></td>
+                        </tr>
+                        
+                        
+
+                        <tr class="ftr">
+                            <td class="fNum"><b >2</b></td>
+                            <td>고양이 똥은 얼마나 자주싸나요?<br>
+                                수시로 쌉니다.
+                            </td>
+                        </tr>
+
+                        <tr class="ftr">
+                            <td class="fNum"><b >3</b></td>
+                            <td>토끼 똥은 얼마나 자주싸나요?<br>
+                                수시로 쌉니다.
+                            </td>
+                        </tr>
+
+                        <tr class="ftr">
+                            <td class="fNum"><b >4</b></td>
+                            <td>돼지 똥은 얼마나 자주싸나요?<br>
+                                수시로 쌉니다.
+                            </td>
+                        </tr>
+
+                    </table>              
+                
+
+                   
+         </div>
+         <br><br><br><br><br>
+     
+      </section>
+   </div>
+</body>
+</html>
