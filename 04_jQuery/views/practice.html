@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script src ="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<style>
+	.menu{
+		width: 300px; height: 30px;
+		background : yellowgreen;
+		border-radius: 10px;
+		text-align: center;
+		border : 1px solid green;
+		cursor : pointer;
+	}
+	.contents{
+		border : 1px solid lightgray;
+		width : 300px;
+		height : 200px;
+		display : none;
+    }
+
+    .tmenu{
+
+    }
+    .tcontents{
+        display: none;
+    }
+
+.tableA{
+    width: auto;
+    border-collapse: collapse;
+    border: 1px solid salmon;
+}
+.tableA tr{
+    height: 50px;
+}
+.tableA td{
+    height: 50px;
+}
+</style>
+</head> 
+<body>
+
+    <div class="menu">munu1</div>
+    <div class="contents">내용1</div>
+    <div class="menu">munu2</div>
+    <div class="contents">내용2</div>
+    
+    <table class ="tableA">
+        <tr>
+            <td span="cols">번호</td>
+            <td span="cols">제목</td>
+        </tr>
+        <tr class="tmenu">
+            <td>1</td>
+            <td>title</td>
+        </tr>
+
+        <tr class="tcontents">
+            <td></td>
+            <td>내용1</td>
+        </tr>
+
+        <tr class="tmenu">
+            <td>1</td>
+            <td>title</td>
+        </tr>
+
+        <tr class="tcontents">
+            <td></td>
+            <td>내용1</td>
+        </tr>
+
+
+    </table>
+
+<script>
+    $(function(){
+        $('.menu').click(function(){
+            $(this).next().slideToggle();
+        });
+          $('.tmenu td').mouseenter(function(){
+            $(this).parent().css({'background' : 'beige', 'cursor' : 'pointer'})
+            }).mouseout(function(){
+                $(this).parent().css({'background' : 'white'})
+            }).click(function(){
+            $(this).parent().next().slideToggle();
+        });
+    });
+
+</script>
+
+</body>
+</html>
