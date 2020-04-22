@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <title>Document</title>
+<style>
+#dim{
+  
+}
+#chatdiv{
+    background: yellow;
+    width: 100px;
+    height: 150px;
+    display: none;
+}
+</style>
+</head>
+<body>
+    <div id ="wrap">
+        <button id ="showModal">클릭</button>
+        <div id = "chatdiv">안녕</div>
+    </div>
+
+
+<script>
+    $("#showModal").click(function(){
+		if($('#chatdiv').css('display') == 'block'){
+				$('#chatdiv').hide();
+			
+		} else if($('#chatdiv').css('display') == 'none'){
+			
+				$('#chatdiv').show();
+			
+		}
+    });
+    /*
+   $("#showModal").click(function(e){
+		if($('#chatdiv').css('display') == 'block'){
+			if(!$('#chatdiv').has(e.target).length) {
+				$('#chatdiv').hide();
+			}
+		} else if($('#chatdiv').css('display') == 'none'){
+			if($('#chatbtn').has(e.target).length) {
+				$('#chatdiv').show();
+			}
+		}
+    });
+    */
+</script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <title>Document</title>
+<style>
+
+    
+.pagingArea button {
+	border-radius: 10px;
+	background: beige;
+	height: 25px;
+	width: 50px
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+#numBtn {
+	background: skyblue;
+}
+
+#choosen {
+	background: #FFD8D8;
+}
+
+#listArea {
+	margin: auto;
+}
+
+</style>
+</head>
+<body>
+
+    	<!-- 페이징 -->
+        <div class="pagingArea" align="center">
+            <%
+                if (!list.isEmpty()) {
+            %>
+                <!-- 맨 처음으로 -->
+                <button onclick = "startBtn_Click();">&lt;&lt;</button>
+                <!-- 이전 페이지로 -->
+                <button id="beforeBtn" onclick ="beforeBtn_Click();">&lt;</button>
+
+                <!-- 10개 페이지 목록 -->
+                <%
+                    for (int p = startPage; p <= endPage; p++) {
+                %>
+                    <%
+                        if (p == currentPage) {
+                    %>
+                    <button id="choosen" disabled><%=p%></button>
+                    <%
+                        } else {
+                    %>
+                    <button id="numBtn" onclick="NumBtn_Click();"><%=p%></button>
+                    <input type="hidden" name ="getNum" value=<%=p%> />
+                    <%
+                        }
+                    %>
+                <%
+                    }
+                %>
+
+                <!-- 다음 페이지로 -->
+                <button id="afterBtn" onclick="afterBtn_Click();">&gt;</button>
+                
+                <!-- 맨 끝으로 -->
+                <button onclick="endBtn_Click();">&gt;&gt;</button>
+
+            <%
+                }
+            %>
+        </div>
+        <script>
+            $(function(){
+                if (<%=currentPage%> <= 1) {
+                    $('#beforeBtn').attr('disabled', 'true');
+                }
+                if ( <%=currentPage%>  >= <%=maxPage%>) {
+                    $('#afterBtn').attr('disabled', 'true');
+                }
+            });
+            function startBtn_Click(){
+                location.href ="<%=request.getContextPath()%>/slist.no?currentPage=1" +
+                               "&option=<%=option%>&search=<%=search%>";
+            }
+            function beforeBtn_Click(){
+                location.href ="<%=request.getContextPath()%>/slist.no?currentPage=<%=currentPage - 1%>" +
+                                "&option=<%=option%>&search=<%=search%>";
+            }
+            function NumBtn_Click(){
+                location.href ="<%=request.getContextPath()%>/slist.no?currentPage=<%=request.getParameter("getNum")%>" +
+                                "&option=<%=option%>&search=<%=search%>";
+            }
+            function afterBtn_Click(){
+                location.href ="<%=request.getContextPath()%>/slist.no?currentPage=<%=currentPage + 1%>" + 
+                                "&option=<%=option%>&search=<%=search%>";
+            }
+            function endBtn_Click(){
+                location.href="<%=request.getContextPath()%>/slist.no?currentPage=<%=maxPage%>" + 
+                              "&option=<%=option%>&search=<%=search%>";
+            }
+									
+
+        </script>
+</body>
+</html>
