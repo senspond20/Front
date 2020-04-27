@@ -8,24 +8,19 @@
 <body>
     <!-- 페이징 -->
     <div class="pagingArea" align="center">
-        <%
-            if (!list.isEmpty()) {
-        %>
+        <% if (!list.isEmpty()) { %>
         <!-- 맨 처음으로 -->
-        <button onclick="location.href='<%=request.getContextPath()%>/list.inq?currentPage=1&option=<%=option%>&search=<%=search%>&check=<%=check%>'">&lt;&lt;</button>
+        <button onclick= "firstBtn();">&lt;&lt;</button>
 
         <!-- 이전 페이지로 -->
-        <button
-            onclick="location.href='<%=request.getContextPath()%>/list.inq?currentPage=<%=currentPage - 1%>&option=<%=option%>&search=<%=search%>&check=<%=check%>'"
-            id="beforeBtn">&lt;</button>
-        <script>
-            if (
-        <%=currentPage%>
-            <= 1) {
-                $('#beforeBtn')
-                        .attr('disabled', 'true');
+        <button onclick = "beforeBtn">&lt;</button>
+        <script>   
+        if (<%=currentPage%> <= 1) {
+            $('#beforeBtn').attr('disabled', 'true');
             }
         </script>
+
+        <% String basePath = <%=request.getContextPath()%>/list.inq?; %>
 
         <!-- 10개 페이지 목록 -->
         <%
@@ -51,11 +46,7 @@
         <button id="afterBtn"
             onclick="location.href='<%=request.getContextPath()%>/list.inq?currentPage=<%=currentPage + 1%>&option=<%=option%>&search=<%=search%>&check=<%=check%>'">&gt;</button>
         <script>
-            if (
-        <%=currentPage%>
-            >=
-        <%=maxPage%>
-            ) {
+            if (  <%=currentPage%> >= <%=maxPage%> ) {
                 $('#afterBtn').attr('disabled', 'true');
             }
         </script>
@@ -68,6 +59,15 @@
             }
         %>
     </div>
-    
+    <script>
+        function firstBtn() {
+            location.href='<%=request.getContextPath()%>/list.inq?currentPage=1&option=<%=option%>&search=<%=search%>&check=<%=check%>';
+        }
+        function beforeBtn(){
+            location.href='<%=request.getContextPath()%>/list.inq?currentPage=<%=currentPage - 1%>&option=<%=option%>&search=<%=search%>&check=<%=check%>'
+            
+            }
+        
+    </script>
 </body>
 </html>

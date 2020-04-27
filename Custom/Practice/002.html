@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <textarea id ="text"></textarea>
+    <button id ="test" onclick="testgo();">클릭</button>
+    <script>
+        function testgo(){
+            var text = document.getElementById('text');
+           // alert(text.value);
+            if(text.value ==""){
+                alert('없음');
+            }
+        }
+        
+    </script>
+ 
+</body>
+</html>
