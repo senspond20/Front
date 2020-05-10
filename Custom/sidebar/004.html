@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    /* motion */
+.mot2 {
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+.mot3 {
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+.mot4 {
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s ease-out;
+    -ms-transition: all 0.4s ease-out;
+    -o-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+}
+
+.en {font-family: 'Myriad Pro', sans-serif;}
+.bi {font-family: 'Hanwha-Bold', sans-serif;}
+
+    #header {position:fixed; top:0; left:0; width:100%; min-width: 1200px; z-index:99; background-color:#fff;}
+    #header .h-members-container {position:relative; float:left; width:100%; height:29px;}
+    #header .h-members {position:absolute; top:0; width:100%; height:29px;border-bottom:1px solid #cccccc; display: none;}
+    #header .h-members .h-members-btns {float:right; margin-right:25px;}
+    #header .h-members .h-members-btns div {float:left; display: inline-block; line-height:30px;}
+    #header .h-members .h-members-btns div.h-members-sns-btns:after {content:""; width:1px; height:12px; float:left; margin:9px 15px; background-color:rgba(102,102,102,0.2);}
+    #header .h-members .h-members-btns div a {display: inline-block; float:left; transition:color 0.3s;}
+    /* 2017-03-13 */
+    #header .h-members .h-members-btns div a:after {content:""; width:2px; height:2px; float:left; margin:14px 8px; background-color:rgba(134,134,134,1);}
+    #header .h-members .h-members-btns div a:first-child:after {display:none;}
+    /* //2017-03-13 */
+    #header .h-members .h-members-btns div a:hover {color:#00c5bc;}
+    #header .h-members .h-members-btns div a img {vertical-align:middle;}
+    #header .h-members .h-members-btns div.h-members-sns-btns a {color:#999999;}
+    #header .h-members .h-members-btns div.h-members-sns-btns a:after {color:#999999; background-color:rgba(134,134,134,0.5);} /* 2017-03-13 */
+    #header .h-members .h-members-btns div.h-members-login-btns {font-weight: bold;}
+    
+    #header .h-menu-box {position:relative; float:left; width:100%; height:67px; text-align: center; border-bottom: 1px solid #e9e9e9;}
+    #header .h-menu-box .h-logo {position:relative; width:142px; margin:22px auto 8px;display:block;}
+    #header .h-menu-box .h-logo a img {vertical-align: middle;}
+    #header .h-menu-box .h-logo .h-logo-box {display: none;}
+    #header .h-menu-box .h-logo .h-logo-box li {position:absolute; top:0; left:0;}
+    #header .h-menu-box .h-logo .h-logo-box li.h-logo-l {top:11px;}
+    #header .h-menu-box .h-logo .h-logo-box li.h-logo-c {left:46px;}
+    #header .h-menu-box .h-logo .h-logo-box li.h-logo-r {top:19px; left:81px;}
+    #header .h-menu-box .h-menu {width:20px;position:absolute; top:27px; right:23px; display: none;}
+    #header .h-menu-box .h-menu div {width:20px; height:2px; background-color: #999999; margin-bottom:5px;}
+
+    .gnb_menu {width:415px;overflow:hidden;position:absolute;top:67px;z-index:2;background:#fff;right:-100%;opacity:0;text-align:left;}
+    .gnb_menu .gnb_menu_ul {overflow:hidden;border-top:1px solid #e6e6e6;position:relative;z-index:2;}
+    .gnb_menu .gnb_menu_ul li {position:relative;}
+    .gnb_menu .gnb_menu_ul li a {width:100%;min-height:70px;max-height:119px;display:table;position:relative;box-sizing:border-box;padding-left:30px;border-bottom:1px solid #e6e6e6;}
+    .gnb_menu .gnb_menu_ul li a:before {content:'';width:5px;height:100%;position:absolute;left:0;top:0;padding-bottom:1px;}
+    .gnb_menu .gnb_menu_ul li a .text {display:table-cell;vertical-align:middle;font-size:13px;color:#666;}
+    .gnb_menu .gnb_menu_ul li a .text span {font-size:26px;font-weight:300;line-height:30px;}
+    .gnb_menu .gnb_menu_ul li a .ico {width:29px;height:29px;position:absolute;right:33px;top:50%;margin-top:-14px;}
+    
+    .gnb_menu .gnb_menu_ul li a.gnb1 {background:url('/_resource/images/gnb/bg01_off.jpg') no-repeat 0 center #f3f2f3;}
+    .gnb_menu .gnb_menu_ul li a.gnb1:before {background:#18dfd3;}
+    .gnb_menu .gnb_menu_ul li a.gnb1 .ico {background:url('/_resource/images/gnb/ico01_off.png') no-repeat 0 0;}
+    .gnb_menu .gnb_menu_ul li a.gnb1 .text span {color:#22a29a;}
+    .gnb_menu .gnb_menu_ul li a.gnb2 {background:url('/_resource/images/gnb/bg02_off.jpg') no-repeat 0 center #f6f6f6;}
+    .gnb_menu .gnb_menu_ul li a.gnb2:before {background:#3a7af8;}
+    .gnb_menu .gnb_menu_ul li a.gnb2 .ico {background:url('/_resource/images/gnb/ico02_off.png') no-repeat 0 0;}
+    .gnb_menu .gnb_menu_ul li a.gnb2 .text span {color:#3a7af8;}
+    .gnb_menu .gnb_menu_ul li a.gnb3 {background:url('/_resource/images/gnb/bg03_off.jpg') no-repeat 0 center #f3f3f2;}
+    .gnb_menu .gnb_menu_ul li a.gnb3:before {background:#a047c0;}
+    .gnb_menu .gnb_menu_ul li a.gnb3 .ico {background:url('/_resource/images/gnb/ico03_off.png') no-repeat 0 0;}
+    .gnb_menu .gnb_menu_ul li a.gnb3 .text span {color:#a047c0;}
+    .gnb_menu .gnb_menu_ul li a.gnb4 {background:url('/_resource/images/gnb/bg04_off.jpg') no-repeat 0 center #f6f6f6;}
+    .gnb_menu .gnb_menu_ul li a.gnb4:before {background:#f861a2;}
+    .gnb_menu .gnb_menu_ul li a.gnb4 .ico {background:url('/_resource/images/gnb/ico04_off.png') no-repeat 0 0;}
+    .gnb_menu .gnb_menu_ul li a.gnb4 .text span {color:#f861a2;}
+    /*.gnb_menu .gnb_menu_ul li a.gnb4 .text strong {display:inline-block; width:52px; height:12px; vertical-align:middle; background:url('/_resource/images/gnb/menu_txt_lifeplus.png') no-repeat 0 0; font-size:0;}*/
+    
+    .gnb_menu .gnb_menu_ul li a.active .text {color:#fff;}
+    .gnb_menu .gnb_menu_ul li a.active.gnb1 {background:url('/_resource/images/gnb/bg01_on.jpg') no-repeat 0 center #f3f2f3;}
+    .gnb_menu .gnb_menu_ul li a.active.gnb1 .ico {background:url('/_resource/images/gnb/ico01_on.png') no-repeat 0 0;}
+    .gnb_menu .gnb_menu_ul li a.active.gnb1 .text span {color:#fff;}
+    .gnb_menu .gnb_menu_ul li a.active.gnb2 {background:url('/_resource/images/gnb/bg02_on.jpg') no-repeat 0 center #f6f6f6;}
+    .gnb_menu .gnb_menu_ul li a.active.gnb2 .ico {background:url('/_resource/images/gnb/ico02_on.png') no-repeat 0 0;}
+    .gnb_menu .gnb_menu_ul li a.active.gnb2 .text span {color:#fff;}
+    .gnb_menu .gnb_menu_ul li a.active.gnb3 {background:url('/_resource/images/gnb/bg03_on.jpg') no-repeat 0 center #f3f3f2;}
+    .gnb_menu .gnb_menu_ul li a.active.gnb3 .ico {background:url('/_resource/images/gnb/ico03_on.png') no-repeat 0 0;}
+    .gnb_menu .gnb_menu_ul li a.active.gnb3 .text span {color:#fff;}
+    .gnb_menu .gnb_menu_ul li a.active.gnb4 {background:url('/_resource/images/gnb/bg04_on.jpg') no-repeat 0 center #f6f6f6;}
+    .gnb_menu .gnb_menu_ul li a.active.gnb4 .ico {background:url('/_resource/images/gnb/ico04_on.png') no-repeat 0 0;}
+    .gnb_menu .gnb_menu_ul li a.active.gnb4 .text span {color:#fff;}
+    /*.gnb_menu .gnb_menu_ul li a.active.gnb4 .text strong {background-image:url('/_resource/images/gnb/menu_txt_lifeplus_w.png');}*/
+    
+    .gnb_menu .gnb_menu_ul li a:hover .text {color:#fff;}
+    .gnb_menu .gnb_menu_ul li a.gnb1:hover {background:url('/_resource/images/gnb/bg01_on.jpg') no-repeat 0 center #f3f2f3;}
+    .gnb_menu .gnb_menu_ul li a.gnb1:hover .ico {background:url('/_resource/images/gnb/ico01_on.png') no-repeat 0 0;}
+    .gnb_menu .gnb_menu_ul li a.gnb1:hover .text span {color:#fff;}
+    .gnb_menu .gnb_menu_ul li a.gnb2:hover {background:url('/_resource/images/gnb/bg02_on.jpg') no-repeat 0 center #f6f6f6;}
+    .gnb_menu .gnb_menu_ul li a.gnb2:hover .ico {background:url('/_resource/images/gnb/ico02_on.png') no-repeat 0 0;}
+    .gnb_menu .gnb_menu_ul li a.gnb2:hover .text span {color:#fff;}
+    .gnb_menu .gnb_menu_ul li a.gnb3:hover {background:url('/_resource/images/gnb/bg03_on.jpg') no-repeat 0 center #f3f3f2;}
+    .gnb_menu .gnb_menu_ul li a.gnb3:hover .ico {background:url('/_resource/images/gnb/ico03_on.png') no-repeat 0 0;}
+    .gnb_menu .gnb_menu_ul li a.gnb3:hover .text span {color:#fff;}
+    .gnb_menu .gnb_menu_ul li a.gnb4:hover {background:url('/_resource/images/gnb/bg04_on.jpg') no-repeat 0 center #f6f6f6;}
+    .gnb_menu .gnb_menu_ul li a.gnb4:hover .ico {background:url('/_resource/images/gnb/ico04_on.png') no-repeat 0 0;}
+    .gnb_menu .gnb_menu_ul li a.gnb4:hover .text span {color:#fff;}
+    /*.gnb_menu .gnb_menu_ul li a.gnb4:hover .text strong {background-image:url('/_resource/images/gnb/menu_txt_lifeplus_w.png');}*/
+    
+    .gnb_menu .gnb_info {width:100%;background:#fff;position:absolute;left:0;bottom:0;}
+    .gnb_menu .gnb_info .info_ul {overflow:hidden;border-bottom:1px solid #e0e0e0; padding-bottom: 20px;}
+    .gnb_menu .gnb_info .info_ul li {width:138px;float:left;position:relative;}
+    .gnb_menu .gnb_info .info_ul li a {height:14px;padding-top:34px;display:block;position:relative;font-size:13px;color:#777;font-weight:bold;letter-spacing:1px; overflow: hidden; text-align:center;}
+    .gnb_menu .gnb_info .info_ul li a:before {display:block; content:''; width:100%; height:22px; position:absolute; top:0;}
+    .gnb_menu .gnb_info .info_ul li a.btn_lifeplus:before {background:url('/_resource/images/images/gnb/ico_lifeplus.png') no-repeat 50% 0;}
+    .gnb_menu .gnb_info .info_ul li a.btn_facebook:before {background:url('/_resource/images/images/gnb/ico_facebook.png') no-repeat 50% 1px;}
+    .gnb_menu .gnb_info .info_ul li a.btn_insta:before {background:url('/_resource/images/images/gnb/ico_insta.png') no-repeat 50% 1px;}
+    .gnb_menu .gnb_info .info_ul li a.btn_lifeplus:hover:before {background-position-y:-22px;}
+    .gnb_menu .gnb_info .info_ul li a.btn_facebook:hover:before {background-position-y:-19px;}
+    .gnb_menu .gnb_info .info_ul li a.btn_insta:hover:before {background-position-y:-19px;}
+    .gnb_menu .gnb_info div li a img {margin-left:20px; margin-bottom: 20px;}
+    
+    .gnb_menu .gnb_info .copyright {padding:20px 0;}
+    .gnb_menu .gnb_info .copyright .side_ul {text-align:center;margin-bottom:20px;}
+    .gnb_menu .gnb_info .copyright .side_ul li {height:10px;display:inline-block;border-right:1px solid #ccc;padding:0 4px;}
+    .gnb_menu .gnb_info .copyright .side_ul li:last-child {border:0;}
+    .gnb_menu .gnb_info .copyright .side_ul li a {display:block;position:relative;font-size:12px;color:#666;line-height:12px;text-align:center;padding-right:4px;}
+    .gnb_menu .gnb_info .copyright .side_ul li:nth-child(2) a {font-weight:900;}
+    .gnb_menu .gnb_info .copyright .copy_img {width:271px;height:16px;margin:0 auto 11px;}
+    .gnb_menu .gnb_info .copyright .text_ul {text-align:center;}
+    .gnb_menu .gnb_info .copyright .text_ul li {height:10px;display:inline-block;border-right:1px solid #ccc;padding:0 6px 0 3px;font-size:12px;color:#666;line-height:12px;letter-spacing:-1px;}
+    .gnb_menu .gnb_info .copyright .text_ul li:last-child {border:0;}
+</style>
+</head>
+<body>
+    <div id="header" class="fixed-group">
+        <div class="dumpBannerBox"></div>
+        <div class="h-members-container">
+            <div class="h-members">
+                <div class="h-members-btns">
+                  <!-- 2017-03-13 -->
+                    <div class="h-members-sns-btns">
+                        <a href="https://www.facebook.com/lifeplus.h/" class="fb" target="_blank" onclick='eventTrack("", "gnb_facebook");' >페이스북</a>
+                        <a href="https://www.instagram.com/lifeplus_h/" class="insta" target="_blank" onclick='eventTrack("", "gnb_instagram");'>인스타그램</a>                            
+                        <a href="https://www.lifeplus.co.kr" class="lifeplus bi" target="_blank" onclick='eventTrack("", "gnb_lifeplus");'>LIFEPLUS</a><!-- 2019-04-09 -->
+                    </div>
+                    <!-- //2017-03-13 -->
+                    <div class="h-members-login-btns">
+                        
+                        <a href="javascript:login.showPop('pop_login');" class="login" onclick='eventTrack("", "gnb_login");'>로그인</a>
+                        <a href="/member/register.do" class="regist" onclick='eventTrack("", "gnb_register");'>회원가입</a>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="h-menu-box">
+            <a href="/discover/library.do" class="h-logo">
+                <div>
+                    <img src="/_resource/images/common/logo.png" alt=""/>
+                    
+                </div>
+            </a>
+            <a href="javascript:void(0);" class="h-menu">
+                <div class="bar1 mot2"></div>
+                <div class="bar2 mot2"></div>
+                <div class="bar3 mot2"></div>
+            </a>
+            <div class="gnb_menu">
+                <ul class="gnb_menu_ul">
+                    <li>
+                        <a href="/discover/library.do" class="gnb1 mot2" onclick='eventTrack("", "menu_discover");'>
+                            <div class="text mot2">
+                                <span class="en mot2">Discover</span><br>
+                                당신의 버킷 리스트를 찾아보세요.
+                            </div>
+                            <div class="ico mot2"></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:goMyBucket();" class="gnb2 mot2" onclick='eventTrack("", "menu_mypage");'>
+                            <div class="text mot2">
+                                <span class="en mot2">My Bucket</span><br>
+                                나의 버킷 리스트를 모아보세요.
+                            </div>
+                            <div class="ico mot2"></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/notice/notice_list.do" class="gnb3 mot2" onclick='eventTrack("", "menu_event");'>
+                            <div class="text mot2">
+                                <span class="en mot2">Event</span><br>
+                                다양한 혜택과 이벤트를 놓치지 마세요.
+                            </div>
+                            <div class="ico mot2"></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/about/about.jsp" class="gnb4 mot2" onclick='eventTrack("", "menu_about");'>
+                            <div class="text mot2">
+                                <span class="en mot2">About</span><br>      
+                                <strong class="bi">LIFEPLUS</strong> Bucket List를 소개합니다. <!-- 2019-04-09 -->
+                            </div>
+                            <div class="ico mot2"></div>
+                        </a>
+                    </li>
+                </ul>
+       
+                <div class="gnb_info">
+                <!-- 2018-09-03 -->
+                     <div>
+                          <ul>
+                        <li>
+                          <a href="https://www.onsure.co.kr/p/contract/computeBucket.do" target="_blank"><img src="/_resource/images/gnb/w_menu_banner.jpg" alt=""/></a>
+                         </li>
+                      </ul>
+                     </div> 
+                <!-- 2018-09-03 -->
+                  <!-- 2017-03-13 -->
+                    <ul class="info_ul">
+                        <li>
+                            <a href="https://www.lifeplus.co.kr" class="btn_lifeplus en" target="_blank" onclick='eventTrack("", "menu_lifeplus");'>LIFEPLUS</a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/lifeplus.h/" class="btn_facebook en" target="_blank" onclick='eventTrack("", "menu_facebook");'>FACEBOOK</a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/lifeplus_h/" class="btn_insta en" target="_blank" onclick='eventTrack("", "menu_instagram");'>INSTAGRAM</a>
+                        </li>
+                    </ul>
+                  <!-- //2017-03-13 -->
+                    <div class="copyright">
+                        <ul class="side_ul">
+                            <li>
+                                <a href="/terms.jsp" onclick='eventTrack("", "menu_terms");'>이용약관</a>
+                            </li>
+                            <li>
+                                <a href="/privacy.jsp" onclick='eventTrack("", "menu_privacy");'>개인정보 취급방침</a>
+                            </li>
+                            <!--<li>-->
+                                <!--<a href="#">이메일 문의</a>-->
+                            <!--</li>-->
+                            <li>
+                                <a href="/faq/faq_list.do" onclick='eventTrack("", "menu_faq");'>자주 묻는 질문</a>
+                            </li>
+                        </ul>
+                        <div class="copy_img">
+                            <img src="/_resource/images/gnb/copy.png" alt="Hanwha Life. All rights reserved.">
+                        </div>
+                        <ul class="text_ul">
+                            <li>
+                                한화생명보험 주식회사
+                            </li>
+                            <li>
+                                대표이사 여승주
+                            </li>
+                            <li>
+                                사업자등록번호 116-81-11757
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
